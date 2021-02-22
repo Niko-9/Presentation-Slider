@@ -1,0 +1,95 @@
+/*declare variables*/
+:root {
+  --page-1-color: teal;
+  --page-2-color: skyblue;
+  --page-3-color: tan;
+  --page-4-color: slateblue;
+  --animationSpeed: 1s;
+}
+
+/*Reset*/
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+/*Util*/
+.btn,
+.btn.btn-dark:hover {
+  background-color: #fff;
+  color: #333;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 6px;
+  transition: all 150ms ease-in 50ms;
+}
+.btn.btn-dark,
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/*Pages color*/
+#page-1 {
+  background-color: var(--page-1-color);
+}
+#page-2 {
+  background-color: var(--page-2-color);
+}
+#page-3 {
+  background-color: var(--page-3-color);
+}
+#page-4 {
+  background-color: var(--page-4-color);
+}
+/*Layout*/
+.page {
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+  overflow: hidden;
+  height: 100vh;
+}
+.page a {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+}
+.page p {
+  padding: 0 2em;
+  font-size: 1.2em;
+}
+.page h2 {
+  font-size: 4rem;
+}
+#page-1 h2 {
+  transform: translate(0, -1200px);
+  animation: _translateToOrigin var(--animationSpeed) ease-in-out forwards;
+}
+#page-1 p {
+  transform: translate(-1200px, 0);
+  animation: _translateToOrigin var(--animationSpeed) ease-in-out forwards
+    calc(var(--animationSpeed) / 2);
+}
+#page-1 .nav-btn {
+  transform: translate(0, 600px);
+  animation: _translateToOrigin var(--animationSpeed) ease-in-out forwards
+    calc(var(--animationSpeed) / 1.2);
+}
+
+@keyframes _translateOutOfOrigin {
+  to {
+    transform: translate(-1200px);
+  }
+}
+@keyframes _translateToOrigin {
+  to {
+    transform: translate(0);
+  }
+}
